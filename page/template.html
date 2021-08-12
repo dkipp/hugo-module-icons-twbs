@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <style>
+    ul.hugo-icons-list{max-width: 500px; margin: 0 auto;}
+    ul.hugo-icons-list li{display:flex; align-items: center; justify-content: space-between; padding: .5rem; fill: currentColor;}
+    ul.hugo-icons-list li:nth-child(odd){background-color: rgba(201, 194, 194, 0.982);}
+  </style>
+  <ul class="hugo-icons-list">
+  {{ range resources.Match "hugo-icons/icons/*.svg" }}
+    <li>
+    {{ replace .Name "hugo-icons/icons/" "" }}: 
+		<span>
+		  {{ .Content | safeHTML }}
+    </span>
+    </li>
+  {{ end }}
+</ul>
+{{ end }}
